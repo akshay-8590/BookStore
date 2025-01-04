@@ -30,9 +30,13 @@ const Navbar = () => {
     <h1 className='text-2xl font-semibold'>Bookstore</h1>
     </div>
     <div className='nav-link-Books'>
-      {links.map((items, i) =>(
-        <div key={i} >{items.title}</div>
-      ))}
+      <div className='flex gap-4'>
+        {links.map((items, i) =>(
+        <div className='hover:text-blue-500 transition-all duration-300' key={i} >
+          {items.title}{" "}
+          </div>
+      ))}</div>
+      <div className='flex gap-4'></div>
     </div>
     </div>
   )
