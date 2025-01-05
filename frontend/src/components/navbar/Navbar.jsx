@@ -29,14 +29,17 @@ const Navbar = () => {
          src="https://cdn-icons-png.flaticon.com/128/10433/10433049.png" alt="logo" />
     <h1 className='text-2xl font-semibold'>Bookstore</h1>
     </div>
-    <div className='nav-link-Books'>
+    <div className='nav-link-Books flex gap-4 items-center'>
       <div className='flex gap-4'>
         {links.map((items, i) =>(
         <div className='hover:text-blue-500 transition-all duration-300' key={i} >
           {items.title}{" "}
           </div>
       ))}</div>
-      <div className='flex gap-4'></div>
+      <div className='flex gap-4'>
+          <button className='px-2 py-1 border border-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300'>SignIn</button>
+          <button className='px-2 py-1 bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300'>SignUp</button>
+      </div>
     </div>
     </div>
   )
