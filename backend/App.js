@@ -1,14 +1,18 @@
 const express = require('express');
 const app  = express();
+app.use(express.json());
+require ("dotenv").config();
+require("./conn/conn");
+const user= require("./routes/users")
 
-const PORT = 1000;
+//routes
+app.use("/api/v1", user);
 
-app.get("/",(req,res)=>{
-    res.send("hey it's Backend");
-    
-})
+app.get('/get-user/:id', (req, res) => {
+    res.send('Server is running!');
+});
 
 // create port listen
-app.listen(1000,()=>{
-    console.log("Server running");
-})
+app.listen(process.env.PORT,()=>{
+    console.log(`Server Started at port ${process.env.PORT}`);
+});
