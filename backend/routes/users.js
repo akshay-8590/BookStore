@@ -60,7 +60,7 @@ router.post("/sign-in",async (req, res)=>{
                     {name:existingUser.username},
                     {role:existingUser.username},
                 ];
-                const token = jwt.sign({authClaims},"bookstore123",{expiresIn:"30d"})
+                const token = jwt.sign({authClaims},"bookStore123",{expiresIn:"1h"})
                 res.status(200).json({id:existingUser._id , 
                     role: existingUser.role, 
                     token:token,
@@ -79,7 +79,7 @@ router.post("/sign-in",async (req, res)=>{
 router.get("/get-user",authenticateToken ,async (req,res)=>{
     try{
         const {id} = req.headers;
-        const data = await User.findOne(id);
+        const data = await User.findById(id);
         return res.status(200).json(data);
     }catch (err) { res.status(500).json({message:"Internal server error"})
 }
