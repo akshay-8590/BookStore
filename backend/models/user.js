@@ -20,7 +20,7 @@ const user = new mongoose.Schema({
     },
     avatar:{
         type:String, 
-        default: "BookStore/backend/package.json",
+        default: "https://www.flaticon.com/free-icons/user",
     },
     role: {
         type: String,

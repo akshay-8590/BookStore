@@ -7,9 +7,11 @@ const authenticateToken = (req, res, next) => {
     if(token == null) {
         return res.status(401).json({message:"Authentication token required"});
     }
-    jwt.verify(token, "bookstore123 ", (err, user)=>{
+    jwt.verify(token, "bookStore123", (err, user)=>{
         if(err){
-            return res.status(403).json({message:"token expired,Please signIn again"})
+            return res
+            .status(403)
+            .json({message:"token expired,Please signIn again"})
         }
         req.user = user;
         next();
