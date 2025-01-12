@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { FaGripLines } from "react-icons/fa";
 
+
 const Navbar = () => {
   const links =[
     {
@@ -31,7 +32,7 @@ const Navbar = () => {
     <Link to="/" className='flex items-center'>
         <img className='h-10 me-4'
          src="https://cdn-icons-png.flaticon.com/128/10433/10433049.png" alt="logo" />
-    <h1 className='text-2xl font-semibold'>BookMate</h1>
+    <h1 className='px text-yellow-100 text-2xl font-semibold '>The</h1>&nbsp;&nbsp;<h1 className='text-2xl font-semibold'>BookSmith</h1>
     </Link>
     <div className='nav-link-Books block md:flex gap-4 items-center'>
       <div className='hidden md:flex gap-4'>
