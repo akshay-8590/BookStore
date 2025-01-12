@@ -1,6 +1,6 @@
 const express = require('express');
 const app  = express();
-app.use(express.json());
+const cors = require('cors')
 require ("dotenv").config();
 require("./conn/conn");
 const user= require("./routes/users")
@@ -8,6 +8,8 @@ const books = require("./routes/book")
 const favourites = require("./routes/favourite")
 
 
+app.use(cors())
+app.use(express.json());
 //routes
 app.use("/api/v1", user);
 app.use("/api/v1", books);
