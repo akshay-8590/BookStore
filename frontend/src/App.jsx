@@ -8,6 +8,7 @@ import SignUp from './pages/SignUp'
 import Profile from './pages/Profile'
 import Cart from './pages/Cart'
 import Login from './pages/Login'
+import ViewBookDetails from './components/ViewBookDetails/ViewBookDetails'
 
 // import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/LogIn" element={<Login/>}/>
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path='view-book-details/:id' element={<ViewBookDetails/>} />
           
         </Routes>
         <Footer/>
