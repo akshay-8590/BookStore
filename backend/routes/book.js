@@ -106,7 +106,7 @@ router.get("/get-book-by-id/:id", async (req,res)=>{
         const book =await Book.findById(id);
         return res.json({
             status:"Success",
-            data:book,
+            data: book,
         });
     }catch(error){
         console.log(error);
