@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Hero = () => {
   return (
     <div className='h-screen md:h-[78vh] flex flex-col md:flex-row items-center justify-center'>
-      <div className='w-full  md:mb-0 lg:w-3/6 flex flex-col lg:items-start justify-center'>
+      <div className='w-full  md:mb-0 lg:w-3/6 flex flex-col lg:items-start justify-center' >
       <h1 className='text-4xl lg:text-6xl font-semibold text-yellow-100 text-center lg:text-left'>
         Discover Your Next Great Read
         </h1>
