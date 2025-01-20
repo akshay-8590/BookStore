@@ -13,7 +13,6 @@ const RecentlyAdded = () => {
         };
         fetch();
     }, []);
-    
   return (
     <div className='mt-8 px-4'>
         <h4 className='text-3xl text-yellow-100'>Recently Added books</h4>

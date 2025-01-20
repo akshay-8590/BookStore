@@ -1,7 +1,45 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
-const SignUp = () => {
+
+const SignUp = () => {const [Values,setValues] = useState({
+  username:"",
+  email:"",
+  password:"",
+  address:"",
+});
+const navigate = useNavigate();
+const change = (e) =>{
+  const {name,value }=e.target;
+  setValues({...Values,[name]:value });
+};
+const submit = async () => {
+  try{
+    if (
+      Values.username === "" || 
+       Values.email === "" || 
+       Values.password === "" || 
+       Values.address === "" 
+       )
+    {
+       alert ("All fields are required")
+    }
+    else{
+      // console.log("Form Values:", Values);
+
+   const response = await axios.post(
+    "http://localhost:3000/api/v1/sign-up",
+  Values
+);
+
+alert(response.data.message);
+navigate("/Login") //login
+    }
+  }catch(error){
+    alert(error.response.data.message);
+  }
+}
   return (
     <div className='h-screen bg-zinc-900 px-12 py-8 flex items-center justify-center'>
       <div className='bg-zinc-800 rounded-lg px-8 py-5 w-full md:w-3/6 lg:w-2/6'>
@@ -17,6 +55,8 @@ const SignUp = () => {
             placeholder='username'
             name='username'
             required
+            value={Values.username}
+            onChange={change}
           />
         </div>
         <div>
@@ -29,6 +69,8 @@ const SignUp = () => {
             placeholder='abc@example.com'
             name='email'
             required
+            value={Values.email}
+            onChange={change}
           />
         </div>
         <div>
@@ -41,6 +83,8 @@ const SignUp = () => {
             placeholder='password'
             name='password'
             required
+            value={Values.password}
+            onChange={change}
           />
         </div>
         <div>
@@ -53,11 +97,14 @@ const SignUp = () => {
             placeholder='address'
             name='address'
             required
+            value={Values.address}
+            onChange={change}
           />
         </div>
         <div className='mt-4'>
-          <button className='w-full bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-700 duration-300'>
-            SignUp
+          <button className='w-full bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-700 duration-300'
+          onClick={submit}>
+           SignUp
           </button>
         </div>
         <p className='flex mt-4 items-center justify-center text-zinc-200 font-semibold'>
