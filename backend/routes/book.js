@@ -10,7 +10,7 @@ router.post("/add-book", authenticateToken, async(req, res)=>{
         const {id} = req.headers;
         const user = await User.findById(id);
         if(user.role !=="admin"){
-        return res.status(500).json({message:"You DO NOt Have Access"}); 
+        return res.status(500).json({message:"You Do Not Have Access"}); 
         }
         const book = new Book({
             url: req.body.url,

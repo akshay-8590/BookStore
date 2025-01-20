@@ -47,7 +47,6 @@ const App = () => {
             <Route path='/profile/settings' element={<Settings/>}/>
           </Route>
           <Route path='view-book-details/:id' element={<ViewBookDetails/>} />
-          
         </Routes>
         <Footer/>
       
